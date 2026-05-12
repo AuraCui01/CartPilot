@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CartPilot · 把小红书的“种草”自动拼成购物车</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 7h11.5a3 3 0 0 1 0 6H10"/><path d="M10 13l-3 3 3 3"/><circle cx="17.5" cy="7" r="2.5"/>
+        </svg>
+      </div>
+      CartPilot
+    </div>
+    <div class="nav-links">
+      <a href="#features">功能</a>
+      <a href="#pain">痛点</a>
+      <a href="#impact">商业预测</a>
+      <a href="#demo">体验 Demo</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">为小红书电商定制 · 智能买手</span>
+        <h1>把“种草”自动拼成<em>可直接下单</em>的购物车</h1>
+        <p class="lead">CartPilot 基于你在小红书的搜索、浏览停留、收藏与风格偏好，自动在预算与频率约束下生成主推荐购物车，并为每件商品准备 6 个不同方向的“更多选择”。你只需从上往下拉一遍，留下或替换，就能一键确认下单。</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#demo">立即体验 Demo →</a>
+          <a class="btn btn-ghost" href="#impact">查看商业影响预测</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>本周购物车 · CartPilot 已为你拼好</h3>
+        <p>预算 ¥500 · 每周一次 · 品牌优先模式</p>
+        <div class="kpi-row">
+          <div class="kpi"><small>主搜索词</small><strong>中古领带</strong></div>
+          <div class="kpi"><small>风格权重</small><strong>法式 / 复古</strong></div>
+          <div class="kpi"><small>购物车占预算</small><strong>88%</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="pain">
+  <div class="container">
+    <span class="eyebrow">问题定义</span>
+    <h2>小红书的“种草—下单”链路，仍然有一段高摩擦地带</h2>
+    <p class="section-lead">2025 年小红书电商 GMV 已突破 4000 亿元，日均 3900 万用户产生明确商品求购行为，但用户从“被种草”到“真正下单”仍然要经过反复回忆、比价与凑单。CartPilot 想做的，就是把这段路径 agent 化。</p>
+    <div class="pain-grid">
+      <div class="card">
+        <span class="card-tag">用户痛点 · 决策疲劳</span>
+        <h3>看了 20 篇笔记，却记不清买什么</h3>
+        <p>用户的高意图被分散在多个搜索词、收藏夹和深夜浏览里。当他想下单时，必须自己重新回忆“我究竟看过哪些品牌、哪些功效”。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">用户痛点 · 凑单焦虑</span>
+        <h3>想控预算，又怕错过更好的替代品</h3>
+        <p>500 元的周预算到底买什么？这件比那件贵 40 块值不值？这种小决策反复出现，每次都让转化率小幅流失。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">平台痛点 · 意图未转化</span>
+        <h3>意图清晰，但订单没出现</h3>
+        <p>平台拥有用户最真实的搜索 + 停留 + 收藏 + 品牌偏好信号，但目前主要用于内容分发，并没有完整地用来直接组装“可下单方案”。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <span class="eyebrow">CartPilot 是什么</span>
+    <h2>不是再多一个推荐位，而是一个“能替你做决定”的买手 Agent</h2>
+    <p class="section-lead">CartPilot 把内容意图直接映射成一份可执行的购物车方案：用户设定频率与预算上限，Agent 根据兴趣信号生成购物车与替代品；用户保留最终选择权，但少走 6 步决策。</p>
+    <div class="feature-grid">
+      <div class="card">
+        <span class="card-tag">① 信号</span>
+        <h3>把搜索、停留、收藏聚合成意图</h3>
+        <p>停留越久的笔记，对应风格 / 品牌 / 视觉的权重就越高；搜索词决定本周的“高优先意图”，收藏则代表跨周的稳定偏好。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">② 选品</span>
+        <h3>在预算与频率边界内自动组装购物车</h3>
+        <p>Agent 不追求单品最优，而是追求“整车最优”：风格一致、不超预算、覆盖你近期最强意图位（如配饰主推、护肤补货、通勤点缀）。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">③ 选择权</span>
+        <h3>每件商品配 6 个方向的“更多选择”</h3>
+        <p>包括同价位替代、性价比款、升级款、风格外扩、形态替代——直接以横向滚动条展开，避免黑盒推荐。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">④ 解释</span>
+        <h3>为每一件商品给出“CartPilot 为什么选它”</h3>
+        <p>每件商品附小红书风格的“推荐理由气泡”，让用户看到 agent 的判断依据，而不是被动接受结果。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">⑤ 模式</span>
+        <h3>四种购买模式 · 实时切换</h3>
+        <p>「实用 / 品牌 / 颜值 / 性价比」一键切换，CartPilot 会按当前模式重新拼车，让推荐和你此刻的心情对齐。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">⑥ 确认</span>
+        <h3>一键 approve · 直接加入购物车</h3>
+        <p>用户从上往下拉一遍，保留或替换，最后一个按钮确认。把“反复比价 + 回忆 + 凑单”的几步，压缩成一次从上到下的确认。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="container">
+    <span class="eyebrow">商业影响 · 乐观情景预测</span>
+    <h2>CartPilot 不只是 UX 优化，它是一个 GMV 杠杆</h2>
+    <p class="section-lead">以下数字基于公开口径假设：小红书 2024 年电商 GMV 约 ¥4,000 亿，2025 年保持高速增长，日均 3,900 万用户产生明确求购行为，月活约 3 亿；Rise100 商家 2025 年 GMV 同比 +260%，复购率约 32%。我们采用偏乐观的粘性假设。</p>
+
+    <div class="split" style="margin-bottom:36px">
+      <div class="metric-card">
+        <h3>预计转化率提升</h3>
+        <div class="metric-num">+38<small>%</small></div>
+        <p>把高意图行为（搜索 + 停留 + 收藏）直接接入“可下单方案”，减少 6 步以上的人工决策摩擦。</p>
+        <ul>
+          <li>意图→订单转化率：5.4% → 7.5%</li>
+          <li>客单价：因为整车组装，预计 +12%</li>
+          <li>购物车放弃率：预计下降 22%</li>
+        </ul>
+      </div>
+      <div class="metric-card">
+        <h3>预计用户粘性提升（乐观）</h3>
+        <div class="metric-num">+27<small>%</small></div>
+        <p>每周一次“看 CartPilot 拼了什么”会变成一个新的使用动机，与浏览、搜索并列。</p>
+        <ul>
+          <li>DAU/MAU：39% → 49%</li>
+          <li>周打开次数：+1.8 次 / 用户</li>
+          <li>30 日留存：+9 个百分点</li>
+          <li>复购率：32% → 41%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-head">
+        <div>
+          <h3 style="font-size:18px;font-weight:900;margin-bottom:4px">小红书电商 GMV 增长曲线 · 加入 vs 未加入 CartPilot</h3>
+          <p style="font-size:13px;color:var(--muted)">单位：人民币亿元 · 2024 实际、2025 推算、2026–2029 为乐观情景预测</p>
+        </div>
+        <div class="legend">
+          <span><i class="dot a"></i>未加入 CartPilot（基线）</span>
+          <span><i class="dot b"></i>加入 CartPilot（乐观）</span>
+        </div>
+      </div>
+
+      <svg class="chart-svg" viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="GMV 增长曲线">
+        <defs>
+          <linearGradient id="fillBase" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#c8c8d0" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#c8c8d0" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="fillPilot" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#ff2442" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#ff2442" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Grid -->
+        <g stroke="#f0e6e8" stroke-width="1">
+          <line x1="60" y1="40"  x2="860" y2="40"/>
+          <line x1="60" y1="110" x2="860" y2="110"/>
+          <line x1="60" y1="180" x2="860" y2="180"/>
+          <line x1="60" y1="250" x2="860" y2="250"/>
+          <line x1="60" y1="320" x2="860" y2="320"/>
+        </g>
+
+        <!-- Y labels (亿元) -->
+        <g font-size="12" fill="#7a7a80" font-family="Noto Sans SC, sans-serif">
+          <text x="50" y="44"  text-anchor="end">16000</text>
+          <text x="50" y="114" text-anchor="end">12000</text>
+          <text x="50" y="184" text-anchor="end">8000</text>
+          <text x="50" y="254" text-anchor="end">4000</text>
+          <text x="50" y="324" text-anchor="end">0</text>
+        </g>
+
+        <!-- X labels -->
+        <g font-size="12" fill="#7a7a80" font-family="Noto Sans SC, sans-serif" text-anchor="middle">
+          <text x="60"  y="346">2024</text>
+          <text x="220" y="346">2025</text>
+          <text x="380" y="346">2026</text>
+          <text x="540" y="346">2027</text>
+          <text x="700" y="346">2028</text>
+          <text x="860" y="346">2029</text>
+        </g>
+
+        <!-- Baseline points: 4000, 5600, 7300, 9100, 10900, 12500 -->
+        <!-- y = 320 - (val/16000)*280 -->
+        <path d="M60,250 L220,222 L380,192 L540,161 L700,129 L860,101 L860,320 L60,320 Z" fill="url(#fillBase)"/>
+        <path d="M60,250 L220,222 L380,192 L540,161 L700,129 L860,101"
+              stroke="#c8c8d0" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 6"/>
+
+        <!-- Pilot points: 4000, 5600, 8200, 11200, 14400, 17600 (cap visually at 16000) -->
+        <!-- Pilot capped: 4000, 5600, 8200, 11200, 14400, 16000 -->
+        <path d="M60,250 L220,222 L380,177 L540,124 L700,68 L860,40 L860,320 L60,320 Z" fill="url(#fillPilot)"/>
+        <path d="M60,250 L220,222 L380,177 L540,124 L700,68 L860,40"
+              stroke="#ff2442" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Dots -->
+        <g>
+          <circle cx="60"  cy="250" r="5" fill="#c8c8d0"/>
+          <circle cx="220" cy="222" r="5" fill="#c8c8d0"/>
+          <circle cx="380" cy="192" r="5" fill="#c8c8d0"/>
+          <circle cx="540" cy="161" r="5" fill="#c8c8d0"/>
+          <circle cx="700" cy="129" r="5" fill="#c8c8d0"/>
+          <circle cx="860" cy="101" r="5" fill="#c8c8d0"/>
+        </g>
+        <g>
+          <circle cx="60"  cy="250" r="5" fill="#ff2442"/>
+          <circle cx="220" cy="222" r="5" fill="#ff2442"/>
+          <circle cx="380" cy="177" r="5" fill="#ff2442"/>
+          <circle cx="540" cy="124" r="5" fill="#ff2442"/>
+          <circle cx="700" cy="68"  r="5" fill="#ff2442"/>
+          <circle cx="860" cy="40"  r="5" fill="#ff2442"/>
+        </g>
+
+        <!-- 2026 inflection label -->
+        <g font-family="Noto Sans SC, sans-serif">
+          <line x1="380" y1="40" x2="380" y2="320" stroke="#ff2442" stroke-width="1" stroke-dasharray="3 4" opacity=".6"/>
+          <rect x="290" y="14" width="180" height="22" rx="11" fill="#ffe0e6"/>
+          <text x="380" y="29" text-anchor="middle" font-size="12" font-weight="700" fill="#ff2442">2026 · CartPilot 上线</text>
+        </g>
+
+        <!-- End labels -->
+        <g font-family="Noto Sans SC, sans-serif" font-size="12" font-weight="700">
+          <text x="868" y="44"  fill="#ff2442">¥1.76 万亿</text>
+          <text x="868" y="105" fill="#7a7a80">¥1.25 万亿</text>
+        </g>
+      </svg>
+
+      <div class="chart-foot">
+        <div class="meta-box"><small>2029 · 基线 GMV</small><strong>¥1.25 万亿</strong></div>
+        <div class="meta-box"><small>2029 · 加入 CartPilot</small><strong>¥1.76 万亿</strong></div>
+        <div class="meta-box"><small>四年累计增量 GMV</small><strong>≈ ¥9,000 亿</strong></div>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:18px;line-height:1.7">
+        ※ 假设说明：基线沿用 2024 → 2025 的 ~40% 增速，并按年衰减；CartPilot 情景假设上线后 12 个月内带动转化率 +38%、客单价 +12%、复购率 +9pp，并通过 +27% 粘性放大覆盖人群。所有数字均为乐观情景下的项目级演算，仅用于 demo 场景化展示，非官方预测。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="demo" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="container">
+    <span class="eyebrow">立即体验</span>
+    <h2>下面这台手机里，跑的就是 CartPilot 的真实交互</h2>
+    <p class="section-lead">下方是一个内嵌的手机尺寸交互界面，直接在网页里跑。你可以滑动购物车、左右滑动“更多选择”、点击替换商品，或一键确认下单。</p>
+
+    <div class="demo-wrap">
+      <div class="demo-grid">
+        <div class="demo-copy">
+          <h3>怎么玩这个 Demo</h3>
+          <p>这不是截图，是一个真正可交互的小红书风格界面：</p>
+          <ol>
+            <li>查看 <strong>本周购物车</strong>：CartPilot 已为你拼好 3 件商品，并标出预算占用。</li>
+            <li>每件商品下面有一条 <strong>更多选择</strong> 横向滚动条，左右滑动看 6 个替代方案。</li>
+            <li>点击 <strong>换成这件</strong> 即可替换购物车里的商品，预算条会自动更新。</li>
+            <li>右上角 <strong>换一车</strong> 可让 CartPilot 重新拼出一版购物车。</li>
+            <li>底部 <strong>确认并下单</strong> 进入模拟下单成功页。</li>
+          </ol>
+          <p style="margin-top:12px">所有数据、商品、品牌、推荐理由均为 demo 演示。CartPilot 仅生成方案，最终下单权始终在用户手里。</p>
+        </div>
+
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-status"><span>16:28</span><span style="display:flex;align-items:center;gap:5px;">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor">
+                <rect x="0"   y="7"   width="3" height="4"  rx="0.5"/>
+                <rect x="4.7" y="4.5" width="3" height="6.5" rx="0.5"/>
+                <rect x="9.3" y="2"   width="3" height="9"  rx="0.5" opacity="0.28"/>
+                <rect x="14"  y="0"   width="3" height="11" rx="0.5" opacity="0.28"/>
+              </svg>
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor">
+                <circle cx="8" cy="10" r="1.5"/>
+                <path d="M4.9 7.1a4.4 4.4 0 0 1 6.2 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M1.8 4.3a8.8 8.8 0 0 1 12.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <svg width="26" height="12" viewBox="0 0 26 12" fill="none">
+                <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor" stroke-opacity="0.35"/>
+                <rect x="22.5" y="3.5" width="2.5" height="5" rx="1" fill="currentColor" fill-opacity="0.4"/>
+                <rect x="2" y="2" width="4" height="8" rx="2" fill="#ff3b30"/>
+              </svg>
+            </span></div>
+            <div id="phoneScope">
+  <!-- XHS Market Home View -->
+  <div id="marketView">
+    <div class="xhs-header">
+      <div class="xhs-searchbar">
+        <svg class="xhs-search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <span class="xhs-search-query">tods</span>
+        <div class="xhs-search-divider"></div>
+        <svg class="xhs-search-cam" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <button class="xhs-search-btn">搜索</button>
+      </div>
+      <div class="xhs-tabs" id="xhsTabs">
+        <span class="xhs-tab active">发现</span>
+        <span class="xhs-tab xhs-tab-cp" id="cpTab">CartPilot</span>
+        <span class="xhs-tab">运动</span>
+        <span class="xhs-tab">美食</span>
+        <span class="xhs-tab">生鲜</span>
+        <span class="xhs-tab">玩具</span>
+        <span class="xhs-tab">家居</span>
+      </div>
+    </div>
+
+    <div class="market-scroll">
+      <div class="xhs-quick">
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#ff6b9d,#ff2442)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4" fill="white"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="white" fill="none" stroke-width="2"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="white" fill="none" stroke-width="2"/></svg>
+          </div>
+          <span class="xhs-icon-label">Live</span>
+        </div>
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#667eea,#764ba2)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <span class="xhs-icon-label">StarryM</span>
+        </div>
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#f7971e,#ffd200)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <span class="xhs-icon-label">Wonder</span>
+        </div>
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#56ab2f,#a8e063)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+          <span class="xhs-icon-label">Deal</span>
+        </div>
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#f953c6,#b91d73)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          </div>
+          <span class="xhs-icon-label">Perks</span>
+        </div>
+      </div>
+
+      <div class="xhs-quick" style="padding-top:8px">
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#ff9a9e,#ff2442)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <span class="xhs-icon-label">Orders</span>
+        </div>
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#f6d365,#fda085)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </div>
+          <span class="xhs-icon-label">Cart</span>
+        </div>
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#f7971e,#ffd200)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+          <span class="xhs-icon-label">Coupons</span>
+        </div>
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#11998e,#38ef7d)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <span class="xhs-icon-label">Service</span>
+        </div>
+        <div class="xhs-icon-item">
+          <div class="xhs-icon-circle" style="background:linear-gradient(135deg,#c471ed,#f64f59)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span class="xhs-icon-label">History</span>
+        </div>
+      </div>
+
+      <div class="xhs-divider"></div>
+
+      <div class="xhs-grid">
+        <div class="xhs-col">
+          <div class="xhs-card">
+            <div class="xhs-card-img" style="height:160px;background:linear-gradient(160deg,#fce4ec,#f8bbd0)">
+              <div class="xhs-card-caption">"好看，好吵的金子哈哈哈哈"</div>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:38px;padding-top:18px">💍</div>
+            </div>
+            <div class="xhs-card-body">
+              <p class="xhs-card-title">中宋珠宝·足金999妈妈金卡</p>
+              <div class="xhs-card-meta">
+                <span class="xhs-card-price">190.02</span>
+                <span class="xhs-card-sold">19.1k+ sold</span>
+              </div>
+            </div>
+          </div>
+          <div class="xhs-card">
+            <div class="xhs-card-img" style="height:130px;background:linear-gradient(160deg,#e8f5e9,#c8e6c9)">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:34px">👗</div>
+            </div>
+            <div class="xhs-card-body">
+              <p class="xhs-card-title">ins风连衣裙 法式碎花 显瘦</p>
+              <div class="xhs-card-meta">
+                <span class="xhs-card-price">128</span>
+                <span class="xhs-card-sold">8.2k+ sold</span>
+              </div>
+            </div>
+          </div>
+          <div class="xhs-card">
+            <div class="xhs-card-img" style="height:145px;background:linear-gradient(160deg,#fff3e0,#ffe0b2)">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:34px">☕</div>
+            </div>
+            <div class="xhs-card-body">
+              <p class="xhs-card-title">手冲咖啡礼盒套装 居家咖啡师</p>
+              <div class="xhs-card-meta">
+                <span class="xhs-card-price">168</span>
+                <span class="xhs-card-sold">5.6k+ sold</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="xhs-col">
+          <div class="xhs-card">
+            <div class="xhs-card-img" style="height:155px;background:linear-gradient(160deg,#607d8b,#455a64)">
+              <div class="xhs-card-price-badge">¥208</div>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:36px;opacity:.9">🥇</div>
+            </div>
+            <div class="xhs-card-body">
+              <p class="xhs-card-title">以后就这样喊"爸妈"</p>
+              <div class="xhs-card-user">
+                <div class="xhs-card-avatar" style="background:#c8a96e"></div>
+                <span class="xhs-card-username">中宋珠宝黄金</span>
+                <span class="xhs-card-likes">❤️ 190</span>
+              </div>
+            </div>
+          </div>
+          <div class="xhs-card">
+            <div class="xhs-card-img" style="height:165px;background:#1a1a2e">
+              <div class="xhs-card-overlay">性张力西裤 2.0<br><small>OKBRO RISING CLUB</small></div>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:34px">👔</div>
+            </div>
+            <div class="xhs-card-body">
+              <div class="xhs-card-meta">
+                <span class="xhs-card-price">359</span>
+                <span class="xhs-card-sold">3.1k+ sold</span>
+              </div>
+            </div>
+          </div>
+          <div class="xhs-card">
+            <div class="xhs-card-img" style="height:120px;background:linear-gradient(160deg,#e3f2fd,#bbdefb)">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:34px">🧴</div>
+            </div>
+            <div class="xhs-card-body">
+              <p class="xhs-card-title">法国药妆 敏感肌修护精华</p>
+              <div class="xhs-card-user">
+                <div class="xhs-card-avatar" style="background:#ff9eb0"></div>
+                <span class="xhs-card-username">美妆小测评</span>
+                <span class="xhs-card-likes">❤️ 892</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="xhs-tabbar">
+      <div class="xhs-tabbar-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>首页</span>
+      </div>
+      <div class="xhs-tabbar-item active">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v4H3z" opacity=".3"/><path d="M3 7v14h18V7H3zm7 10v-6h4v6h-4z"/><rect x="3" y="3" width="18" height="4" rx="1"/></svg>
+        <span>市场</span>
+      </div>
+      <div class="xhs-tabbar-plus">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+      <div class="xhs-tabbar-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>消息</span>
+      </div>
+      <div class="xhs-tabbar-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>我的</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="app" id="appShell" style="display:none">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 7h11.5a3 3 0 0 1 0 6H10"/>
+            <path d="M10 13l-3 3 3 3"/>
+            <circle cx="17.5" cy="7" r="2.5"/>
+          </svg>
+        </div>
+        <div>
+          <h1>CartPilot</h1>
+          <p>基于小红书兴趣信号的智能买手</p>
+        </div>
+      </div>
+
+      <section class="panel">
+        <div class="section-title">我的偏好</div>
+        <div class="field">
+          <label for="frequency">推荐频率</label>
+          <select id="frequency" class="control">
+            <option value="每天">每天</option>
+            <option value="每周" selected>每周</option>
+            <option value="每月">每月</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">预算上限</label>
+          <input id="budget" class="control mono" type="range" min="200" max="1200" step="20" value="500" />
+          <div class="muted mono" id="budgetLabel">¥500 / 周</div>
+        </div>
+        <div class="field">
+          <label>购买模式</label>
+          <div class="segmented" id="modeSegment">
+            <button data-mode="实用优先">实用</button>
+            <button data-mode="品牌优先" class="active">品牌</button>
+            <button data-mode="颜值优先">颜值</button>
+            <button data-mode="性价比优先">性价比</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">品类偏好</div>
+        <div class="chips" id="categoryChips">
+          <button class="chip active" data-cat="护肤">护肤</button>
+          <button class="chip active" data-cat="配饰">配饰</button>
+          <button class="chip active" data-cat="通勤包">通勤包</button>
+          <button class="chip" data-cat="家居">家居</button>
+          <button class="chip" data-cat="数码">数码</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">不想看到</div>
+        <div class="chips" id="excludeChips">
+          <button class="chip" data-exclude="重复商品">重复商品</button>
+          <button class="chip" data-exclude="单品超过 300">单品超过 ¥300</button>
+          <button class="chip" data-exclude="某奢牌">某奢牌</button>
+          <button class="chip" data-exclude="荧光风格">荧光风格</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">最近兴趣信号</div>
+        <div class="signal-list" id="sidebarSignals"></div>
+      </section>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="top-actions">
+          <button class="btn btn-ghost xhs-back-btn" id="backToMarket">← 返回</button>
+          <div class="topbar-title">
+            <span class="topbar-tag">智能买手 · 购物车流程</span>
+            <strong>本周购物车 · 一拉到底就能下单</strong>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="btn btn-secondary" id="refreshCart">刷新购物车</button>
+          <button class="btn btn-ghost" id="themeToggle" aria-label="切换主题">深色</button>
+        </div>
+      </header>
+
+      <section class="content" id="scrollArea">
+        <div id="mainView">
+          <section class="phone-prefs" id="phonePrefs">
+            <div class="phone-prefs-row">
+              <label>推荐频率
+                <select id="phoneFrequency">
+                  <option value="每天">每天</option>
+                  <option value="每周" selected>每周</option>
+                  <option value="每月">每月</option>
+                </select>
+              </label>
+              <label>预算上限 <span id="phoneBudgetLabel">¥500 / 周</span>
+                <input id="phoneBudget" type="range" min="200" max="1200" step="20" value="500">
+              </label>
+            </div>
+            <div class="phone-prefs-row">
+              <div class="phone-mode" id="phoneModeSegment">
+                <button data-mode="实用优先">实用</button>
+                <button data-mode="品牌优先" class="active">品牌</button>
+                <button data-mode="颜值优先">颜值</button>
+                <button data-mode="性价比优先">性价比</button>
+              </div>
+            </div>
+          </section>
+          <div class="headline">
+            <div>
+              <span class="pill-tag">本周为你拼好的购物车</span>
+              <h2>让 CartPilot 帮你把“种草”直接拼成购物车</h2>
+              <p>基于你的搜索、停留、收藏与风格偏好，CartPilot 自动为你拼出一份主推荐购物车，并为每件商品准备 6 个不同方向的更多选择。你只需从上往下拉一遍，留下或替换，就能一键下单。</p>
+            </div>
+          </div>
+
+          <div class="overview">
+            <section class="hero-card">
+              <div class="eyebrow">本周购物车</div>
+              <div class="budget-row">
+                <div>
+                  <div class="budget-total mono" id="budgetTotal">¥442 / ¥500</div>
+                  <div class="budget-note" id="budgetNote">每周一次 · 品牌优先 · 可直接确认</div>
+                </div>
+                <button class="btn btn-secondary" id="miniRefresh">刷新购物车</button>
+              </div>
+              <div class="progress"><span id="budgetProgress"></span></div>
+              <div class="meta-grid">
+                <div class="meta-box"><small>主搜索词</small><strong id="metaSearch">中古领带</strong></div>
+                <div class="meta-box"><small>高权重风格</small><strong id="metaStyle">法式 / 复古</strong></div>
+                <div class="meta-box"><small>当前模式</small><strong id="metaMode">品牌优先</strong></div>
+              </div>
+            </section>
+
+            <section class="signals-card">
+              <div class="eyebrow">CartPilot 为什么这样拼</div>
+              <div class="signal-list" id="signalPanel"></div>
+              <p class="signal-footnote" id="signalFootnote">你在“法式中古领带搭配”和“敏感肌修护精华”两类笔记上的停留更久，因此 CartPilot 提高了中古、法式、丝质、敏感肌修护等标签的权重。</p>
+            </section>
+          </div>
+
+          <section class="cart-stack" id="cartStack"></section>
+        </div>
+
+        <div class="success-view" id="successView">
+          <div class="success-card">
+            <div class="success-icon" aria-hidden="true">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h3>本周购物车已确认</h3>
+            <p id="successSummary">购物车已模拟加入小红书购物车。你保留了最终选择权，但少走了反复比价、凑单和回忆看过什么的那几步。</p>
+            <div class="success-stats">
+              <div class="meta-box"><small>确认商品数</small><strong id="successItems">3 件</strong></div>
+              <div class="meta-box"><small>最终预算</small><strong id="successBudget">¥442</strong></div>
+              <div class="meta-box"><small>节省决策步骤</small><strong>约 6 步</strong></div>
+            </div>
+            <div class="top-actions" style="justify-content:center;">
+              <button class="btn btn-primary" id="backToCart">浏览更多好物</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footerbar" id="footerBar">
+        <div>
+          <strong id="footerSummary">当前 3 件商品，已占预算 88%</strong>
+          <div class="muted" style="font-size: var(--text-xs);" id="footerHint">替换或删除单件只更新预算条；切换模式或预算，请点“刷新购物车”整体重算。</div>
+        </div>
+        <button class="btn btn-primary" id="approveBtn">确认并下单</button>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js" defer></script>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-bar">
+  CartPilot · 一个面向小红书电商的 agentic shopping demo · 数据来源：虎嗅、36氪、千瓜数据、彭博、澎湃等公开报道，2025 年公开口径估算
+</footer>
+
+<script>
+
+// CartPilot · 智能买手 · 静态 Demo
+// HTML/CSS/JS 单页，无需构建。直接部署到 GitHub Pages 根目录。
+
+// Extra slots used when cart count exceeds the base 3 variants
+const EXTRA_ITEMS = [
+  {
+    slot: '家居补给', category: '家居补给', accent: '#f7c8d2',
+    name: 'Bloom Daily 香薰蜡烛套组', brand: 'Bloom Daily · 日常香氛', price: 128,
+    reason: '预算充足时加入家居香氛位，把日常居家感从护肤延伸到空间氛围。',
+    tags: ['家居', '香氛', '日常'],
+    alternatives: [
+      { type: '同风格 · 同价位', name: 'Edris Maison 香氛喷雾', brand: 'Edris Maison', price: 132, why: '更持久的法式居家香氛。', accent: '#d6a2b0' },
+      { type: '同风格 · 更便宜', name: 'Bloom Daily 单支蜡烛', brand: 'Bloom Daily', price: 78, why: '预算更轻的入门款。', accent: '#fce4ec' },
+      { type: '同风格 · 升级款', name: 'Atelier Vert 法式藤编托盘', brand: 'Atelier Vert', price: 228, why: '高颜值手工家居，视觉中心单品。', accent: '#bb8d9a' },
+      { type: '风格外扩', name: 'Nordica Lab 亚麻抱枕套', brand: 'Nordica Lab', price: 138, why: '家居感从嗅觉扩展到软装。', accent: '#e7b9c2' },
+      { type: '形态替代', name: 'Bloom Daily 香氛扩香石', brand: 'Bloom Daily', price: 96, why: '无烟形态，适合办公桌。', accent: '#f8c8d8' },
+      { type: '同风格 · 同价位', name: 'Calm House 助眠香薰套组', brand: 'Calm House', price: 118, why: '偏睡眠场景的居家香氛。', accent: '#f0b8c8' }
+    ]
+  },
+  {
+    slot: '数码周边', category: '数码周边', accent: '#bfd3f0',
+    name: 'Cobalt Daily 编织快充套装', brand: 'Cobalt Daily · 日常数码', price: 118,
+    reason: '通勤数码配套位，编织线材与整车配色统一，效率小件完成整车搭配闭环。',
+    tags: ['数码', '通勤', '日常'],
+    alternatives: [
+      { type: '同风格 · 同价位', name: 'Pivot Lab 磁吸数据线', brand: 'Pivot Lab', price: 108, why: '磁吸设计，插拔更省力。', accent: '#aec8e8' },
+      { type: '同风格 · 更便宜', name: 'Cobalt Daily 迷你充电宝', brand: 'Cobalt Daily', price: 78, why: '数码补给最高频需求。', accent: '#d0e4f8' },
+      { type: '同风格 · 升级款', name: 'Pivot Lab 桌面拓展坞', brand: 'Pivot Lab', price: 326, why: '升级到桌面效率核心单品。', accent: '#9eb6dc' },
+      { type: '风格外扩', name: 'Cobalt Daily 手机支架', brand: 'Cobalt Daily', price: 88, why: '数码外扩到桌面收纳。', accent: '#c5d8f0' },
+      { type: '形态替代', name: 'Vela Audio 入耳式耳机', brand: 'Vela Audio', price: 238, why: '数码位切换到通勤音频。', accent: '#7990c7' },
+      { type: '同风格 · 同价位', name: 'Pivot Lab 屏幕清洁套', brand: 'Pivot Lab', price: 96, why: '数码日常维护小物。', accent: '#b8ccec' }
+    ]
+  },
+  {
+    slot: '护肤升级', category: '敏感肌护肤', accent: '#c97a6a',
+    name: 'Lumi Atelier 抗老精华礼盒', brand: 'Lumi Atelier · 精华礼盒', price: 198,
+    reason: '基础修护满足后引入抗老精华，让护肤方案从日常修护升级到进阶抗老体系。',
+    tags: ['抗老', '护肤升级', '精华'],
+    alternatives: [
+      { type: '同风格 · 同价位', name: 'Edris Clinic 舒缓精华', brand: 'Edris Clinic', price: 188, why: '品牌背书更强的修护升级。', accent: '#d08878' },
+      { type: '同风格 · 更便宜', name: 'Derme Studio 神经酰胺精华', brand: 'Derme Studio', price: 168, why: '成分扎实，价格更亲民。', accent: '#e09080' },
+      { type: '同风格 · 升级款', name: 'Edris Clinic 抗老三件套', brand: 'Edris Clinic', price: 388, why: '更完整的抗老护肤体系。', accent: '#a86459' },
+      { type: '风格外扩', name: 'Lumi Atelier 眼部精华', brand: 'Lumi Atelier', price: 168, why: '护肤升级延伸到眼部护理。', accent: '#d88a7a' },
+      { type: '形态替代', name: 'Calm Theory B5 修护面霜', brand: 'Calm Theory', price: 148, why: '护肤升级改为面霜形态。', accent: '#e0a090' },
+      { type: '同风格 · 同价位', name: 'Barrier Lab 修护精华油', brand: 'Barrier Lab', price: 198, why: '同品牌的油类精华形态。', accent: '#c8806e' }
+    ]
+  },
+  {
+    slot: '风格配件', category: '中古配饰', accent: '#ffb89c',
+    name: 'Noon Archive 复古胸针套组', brand: 'Noon Archive · 中古配饰', price: 148,
+    reason: '第二件配饰补全穿搭层次，法式中古语义与主配饰呼应，增加整体造型完整感。',
+    tags: ['法式', '中古', '造型层次'],
+    alternatives: [
+      { type: '同风格 · 同价位', name: 'Atelier Rue 法式胸针', brand: 'Atelier Rue', price: 142, why: '更偏复古法式图案。', accent: '#ffcab4' },
+      { type: '同风格 · 更便宜', name: 'Daily Loop 编织发夹', brand: 'Daily Loop', price: 68, why: '预算更轻的造型小件。', accent: '#ffd8c8' },
+      { type: '同风格 · 升级款', name: 'Bellis Atelier 珐琅胸针', brand: 'Bellis Atelier', price: 268, why: '手工珐琅，更有收藏价值。', accent: '#e8906c' },
+      { type: '风格外扩', name: 'Noon Archive 雾感发带', brand: 'Noon Archive', price: 108, why: '配饰延伸到头部造型。', accent: '#ffc4b0' },
+      { type: '形态替代', name: 'Morningside 古着领针', brand: 'Morningside', price: 118, why: '从胸针切换到领针形态。', accent: '#ffd0be' },
+      { type: '同风格 · 同价位', name: 'Atelier Rue 细边耳钉', brand: 'Atelier Rue', price: 136, why: '同风格延伸到耳饰位。', accent: '#ffbaa8' }
+    ]
+  }
+];
+
+const cartVariants = [
+  {
+    id: 'base',
+    footnote: '你在“法式中古领带搭配”和“敏感肌修护精华”两类笔记上的停留更久，因此 CartPilot 提高了中古、法式、丝质、敏感肌修护等标签的权重。',
+    signalSummary: [
+      { label: '中古 / 法式', score: 88, detail: '停留 47分钟' },
+      { label: '敏感肌修护', score: 81, detail: '收藏 5 次' },
+      { label: '品牌质感', score: 74, detail: '模式加权' },
+      { label: '通勤感', score: 63, detail: '搜索触发' }
+    ],
+    items: [
+      {
+        slot: '配饰主推', category: '中古配饰', accent: '#ff5d6c', name: 'Maison Aurore 中古丝质领带', brand: 'Maison Aurore · 复古真丝', price: 168,
+        reason: '对应你最近的“中古领带”搜索，以及你在法式穿搭笔记上的长停留；品牌感更强，适合作为本周购物车的风格锚点。',
+        tags: ['法式', '丝质', '品牌质感'],
+        alternatives: [
+          { type: '同风格 · 同价位', name: 'Atelier Rue 复古纹样领带', brand: 'Atelier Rue', price: 172, why: '同样偏法式中古，图案更克制。', accent: '#ff7a8a' },
+          { type: '同风格 · 同价位', name: 'Morningside 古着真丝领带', brand: 'Morningside', price: 159, why: '品牌不同，仍保留复古纹样和柔和配色。', accent: '#ff8fa3' },
+          { type: '同风格 · 更便宜', name: 'Rue Marché 细纹中古领带', brand: 'Rue Marché', price: 128, why: '便宜 ¥40，仍保持法式复古语义。', accent: '#ffb1bf' },
+          { type: '同风格 · 升级款', name: 'Valen House 手卷边领带', brand: 'Valen House', price: 238, why: '更贵但手感和工艺更强，适合品牌优先。', accent: '#e74c5c' },
+          { type: '风格外扩', name: 'Maison Aurore 复古丝巾', brand: 'Maison Aurore', price: 148, why: '把中古语义扩展成更柔和的法式配饰。', accent: '#ff9eb0' },
+          { type: '形态替代', name: 'Noon Archive 胸针套组', brand: 'Noon Archive', price: 136, why: '仍服务通勤造型，从领带切到胸针。', accent: '#ffb89c' }
+        ]
+      },
+      {
+        slot: '护肤补货', category: '敏感肌护肤', accent: '#ff9b85', name: 'Calm Theory B5 修护精华小样组', brand: 'Calm Theory · 敏感肌修护', price: 122,
+        reason: '你在“敏感肌护肤”笔记上停留时间长，且最近搜索过“什么牌子的护肤品好用”；小样组符合本周预算，也降低试错成本。',
+        tags: ['敏感肌', '修护', '低试错'],
+        alternatives: [
+          { type: '同风格 · 同价位', name: 'Derme Studio 神经酰胺精华组', brand: 'Derme Studio', price: 126, why: '同样聚焦修护和稳定肤感。', accent: '#ff9b85' },
+          { type: '同风格 · 同价位', name: 'Barrier Lab 舒缓安瓶', brand: 'Barrier Lab', price: 118, why: '偏清爽，适合通勤日常补货。', accent: '#ffb1a3' },
+          { type: '同风格 · 更便宜', name: 'Soft Formula 修护旅行装', brand: 'Soft Formula', price: 88, why: '便宜 ¥34，适合控制总预算。', accent: '#ffc6bd' },
+          { type: '同风格 · 升级款', name: 'Edris Clinic 舒缓精华', brand: 'Edris Clinic', price: 186, why: '更贵但更偏品牌背书与成分完整度。', accent: '#e98778' },
+          { type: '风格外扩', name: 'Calm Theory 舒缓喷雾', brand: 'Calm Theory', price: 108, why: '从精华拓展到通勤可用的即时舒缓。', accent: '#ffaa97' },
+          { type: '形态替代', name: 'Derme Studio 修护面膜 4 片', brand: 'Derme Studio', price: 96, why: '仍围绕修护，但切到面膜形态。', accent: '#ffbdac' }
+        ]
+      },
+      {
+        slot: '通勤点缀', category: '通勤配件', accent: '#ffb866', name: 'Ligne Atelier 通勤卡包挂饰', brand: 'Ligne Atelier · 牛皮小件', price: 152,
+        reason: '你近期多次搜索“通勤包”，同时偏好品牌质感优先；这件小皮件能和主包形成低成本的风格更新。',
+        tags: ['通勤', '皮件', '品牌感'],
+        alternatives: [
+          { type: '同风格 · 同价位', name: 'Merit Lane 极简卡夹', brand: 'Merit Lane', price: 146, why: '通勤搭配，风格更极简。', accent: '#ffb866' },
+          { type: '同风格 · 同价位', name: 'Avenu Studio 金属挂饰', brand: 'Avenu Studio', price: 158, why: '更偏视觉亮点，仍在同一预算带。', accent: '#ffc784' },
+          { type: '同风格 · 更便宜', name: 'Office Loop 皮质钥匙扣', brand: 'Office Loop', price: 96, why: '节省 ¥56，适合预算更紧的周配件位。', accent: '#ffd5a3' },
+          { type: '同风格 · 升级款', name: 'Ligne Atelier 压纹证件夹', brand: 'Ligne Atelier', price: 208, why: '更贵但质感更完整，适合品牌优先。', accent: '#e8a04a' },
+          { type: '风格外扩', name: 'Avenu Studio 细框眼镜链', brand: 'Avenu Studio', price: 118, why: '把通勤感拓展到更轻的风格点缀。', accent: '#ffcc8a' },
+          { type: '形态替代', name: 'Merit Lane 帆布电脑袋', brand: 'Merit Lane', price: 184, why: '仍服务通勤场景，但形态改成包袋件。', accent: '#ffd8a8' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'budget',
+    footnote: '预算降低或切换为性价比模式后，CartPilot 优先保留你最近最强的“中古 + 敏感肌”意图，把通勤位换成更高性价比的小件。',
+    signalSummary: [
+      { label: '中古 / 法式', score: 84, detail: '停留 47分钟' },
+      { label: '敏感肌修护', score: 79, detail: '搜索 + 收藏' },
+      { label: '预算收敛', score: 73, detail: '预算限制' },
+      { label: '通勤实用', score: 58, detail: '补足场景' }
+    ],
+    items: [
+      {
+        slot: '配饰主推', category: '中古配饰', accent: '#ff7a8a', name: 'Rue Marché 细纹中古领带', brand: 'Rue Marché · 真丝混纺', price: 128,
+        reason: '在保留中古语义的前提下，用更友好的价格替代高溢价品牌，适合预算收敛后的主推。',
+        tags: ['中古', '稳预算', '法式'],
+        alternatives: [
+          { type: '同风格 · 同价位', name: 'Atelier Rue 复古纹样领带', brand: 'Atelier Rue', price: 132, why: '图案更明显，仍在同价格带。', accent: '#ff8fa3' },
+          { type: '同风格 · 同价位', name: 'Morningside 古着细纹领带', brand: 'Morningside', price: 124, why: '品牌不同，维持法式复古语义。', accent: '#ffa1b3' },
+          { type: '同风格 · 更便宜', name: 'Old Lane 复古斜纹领带', brand: 'Old Lane', price: 96, why: '再便宜 ¥32，适合压缩总车预算。', accent: '#ffb8c6' },
+          { type: '同风格 · 升级款', name: 'Valen House 手卷边领带', brand: 'Valen House', price: 238, why: '切回品牌优先时，它会成为升级候选。', accent: '#e74c5c' },
+          { type: '风格外扩', name: 'Noon Archive 复古丝巾', brand: 'Noon Archive', price: 118, why: '外扩到更轻量的法式元素。', accent: '#ffaabb' },
+          { type: '形态替代', name: 'Atelier Rue 古着胸针', brand: 'Atelier Rue', price: 88, why: '仍补足造型，但从领带切到胸针。', accent: '#ffc4a7' }
+        ]
+      },
+      {
+        slot: '护肤补货', category: '敏感肌护肤', accent: '#ff9b85', name: 'Soft Formula 修护旅行装', brand: 'Soft Formula · 旅行组', price: 88,
+        reason: '预算收窄时，CartPilot 优先保留敏感肌修护需求，但选择试错成本更低的旅行装。',
+        tags: ['敏感肌', '性价比', '旅行装'],
+        alternatives: [
+          { type: '同风格 · 同价位', name: 'Barrier Lab 舒缓安瓶', brand: 'Barrier Lab', price: 92, why: '同样聚焦舒缓稳定。', accent: '#ffaa97' },
+          { type: '同风格 · 同价位', name: 'Derme Studio 修护面膜 4 片', brand: 'Derme Studio', price: 96, why: '更偏即时舒缓。', accent: '#ffbcae' },
+          { type: '同风格 · 更便宜', name: 'Mild Republic 舒缓精华 10ml', brand: 'Mild Republic', price: 68, why: '再省 ¥20，适合更紧预算。', accent: '#ffc7bb' },
+          { type: '同风格 · 升级款', name: 'Calm Theory B5 修护精华小样组', brand: 'Calm Theory', price: 122, why: '预算恢复时，它是更平衡的主推。', accent: '#e98778' },
+          { type: '风格外扩', name: 'Soft Formula 舒缓喷雾', brand: 'Soft Formula', price: 72, why: '扩展到通勤随身舒缓场景。', accent: '#ffb6a5' },
+          { type: '形态替代', name: 'Barrier Lab 修护乳液', brand: 'Barrier Lab', price: 94, why: '从精华切到乳液，仍是修护位。', accent: '#ffc1b1' }
+        ]
+      },
+      {
+        slot: '通勤点缀', category: '通勤配件', accent: '#ffc784', name: 'Office Loop 皮质钥匙扣', brand: 'Office Loop · 通勤小件', price: 96,
+        reason: '在预算模式下保留通勤搭配感，但用更高性价比的配件补足风格。',
+        tags: ['通勤', '低预算', '搭配'],
+        alternatives: [
+          { type: '同风格 · 同价位', name: 'Merit Lane 极简卡夹', brand: 'Merit Lane', price: 104, why: '通勤感更极简。', accent: '#ffc784' },
+          { type: '同风格 · 同价位', name: 'Avenu Studio 金属挂饰', brand: 'Avenu Studio', price: 108, why: '视觉更亮一点。', accent: '#ffd29a' },
+          { type: '同风格 · 更便宜', name: 'Daily Loop 帆布挂绳', brand: 'Daily Loop', price: 68, why: '再省 ¥28，适合极限控预算。', accent: '#ffe0b3' },
+          { type: '同风格 · 升级款', name: 'Ligne Atelier 卡包挂饰', brand: 'Ligne Atelier', price: 152, why: '预算恢复时可以升级回来。', accent: '#e8a04a' },
+          { type: '风格外扩', name: 'Office Loop 极简杯套', brand: 'Office Loop', price: 78, why: '通勤风格外扩到桌面与日常小物。', accent: '#ffd29a' },
+          { type: '形态替代', name: 'Merit Lane 帆布电脑袋', brand: 'Merit Lane', price: 184, why: '切到更实用的通勤包袋位。', accent: '#ffd8a8' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'visual',
+    footnote: '切换为颜值优先后，CartPilot 放大了你在视觉上停留最久的法式与柔和配色信号，购物车更偏“好看”和完整搭配感。',
+    signalSummary: [
+      { label: '法式视觉', score: 91, detail: '停留 53分钟' },
+      { label: '颜色协调', score: 82, detail: '视觉偏好' },
+      { label: '敏感肌修护', score: 65, detail: '仍保留' },
+      { label: '品牌质感', score: 61, detail: '次级约束' }
+    ],
+    items: [
+      {
+        slot: '造型主推', category: '复古配饰', accent: '#ff8298', name: 'Maison Aurore 复古丝巾', brand: 'Maison Aurore · 柔雾配色', price: 148,
+        reason: '颜值优先模式下，CartPilot 更看重你停留最久笔记里的配色和轮廓，因此用更轻巧的复古丝巾作为主视觉单品。',
+        tags: ['法式', '颜色协调', '轻造型'],
+        alternatives: [
+          { type: '同风格 · 同价位', name: 'Noon Archive 雾感丝巾', brand: 'Noon Archive', price: 152, why: '同样适合搭配法式通勤造型。', accent: '#ff9eb0' },
+          { type: '同风格 · 同价位', name: 'Rue Marché 复古丝巾', brand: 'Rue Marché', price: 144, why: '更偏图案感。', accent: '#ffb1bf' },
+          { type: '同风格 · 更便宜', name: 'Atelier Rue 细纹方巾', brand: 'Atelier Rue', price: 108, why: '更低预算但保留法式视觉。', accent: '#ffc6ce' },
+          { type: '同风格 · 升级款', name: 'Valen House 桑蚕丝丝巾', brand: 'Valen House', price: 218, why: '更高品质，颜值与品牌兼顾。', accent: '#e74c5c' },
+          { type: '风格外扩', name: 'Maison Aurore 古典发饰', brand: 'Maison Aurore', price: 128, why: '延展到同风格头部配饰。', accent: '#ffaabb' },
+          { type: '形态替代', name: 'Atelier Rue 法式胸针', brand: 'Atelier Rue', price: 118, why: '保持造型点缀，形式切换。', accent: '#ffc4a7' }
+        ]
+      },
+      {
+        slot: '护肤补货', category: '敏感肌护肤', accent: '#ffab8e', name: 'Barrier Lab 舒缓安瓶', brand: 'Barrier Lab · 清透瓶身', price: 118,
+        reason: '保留修护需求的同时，选择了视觉更轻盈、与整车配色更一致的护肤单品。',
+        tags: ['敏感肌', '轻盈视觉', '协调'],
+        alternatives: [
+          { type: '同风格 · 同价位', name: 'Calm Theory 舒缓喷雾', brand: 'Calm Theory', price: 108, why: '瓶型更轻巧，通勤拿取更顺手。', accent: '#ffaa97' },
+          { type: '同风格 · 同价位', name: 'Derme Studio 神经酰胺精华组', brand: 'Derme Studio', price: 126, why: '视觉更克制。', accent: '#ffbcae' },
+          { type: '同风格 · 更便宜', name: 'Soft Formula 修护旅行装', brand: 'Soft Formula', price: 88, why: '预算更低，仍保留修护位。', accent: '#ffc7bb' },
+          { type: '同风格 · 升级款', name: 'Edris Clinic 舒缓精华', brand: 'Edris Clinic', price: 186, why: '更高品牌背书与成分完整度。', accent: '#e98778' },
+          { type: '风格外扩', name: 'Calm Theory 柔雾唇颊膏', brand: 'Calm Theory', price: 96, why: '从护肤外扩到同色调轻彩妆。', accent: '#ffb6a5' },
+          { type: '形态替代', name: 'Derme Studio 修护面膜 4 片', brand: 'Derme Studio', price: 96, why: '修护位切到片状形态。', accent: '#ffc1b1' }
+        ]
+      },
+      {
+        slot: '通勤点缀', category: '通勤包配件', accent: '#ffc784', name: 'Avenu Studio 金属挂饰', brand: 'Avenu Studio · 柔金点缀', price: 158,
+        reason: '颜值优先会放大配件的视觉存在感，这件更容易为通勤包带来“被看见”的造型完成度。',
+        tags: ['通勤', '造型感', '视觉点睛'],
+        alternatives: [
+          { type: '同风格 · 同价位', name: 'Ligne Atelier 通勤卡包挂饰', brand: 'Ligne Atelier', price: 152, why: '更偏皮革质感。', accent: '#ffd29a' },
+          { type: '同风格 · 同价位', name: 'Merit Lane 极简卡夹', brand: 'Merit Lane', price: 146, why: '风格更冷静克制。', accent: '#ffe0b3' },
+          { type: '同风格 · 更便宜', name: 'Office Loop 皮质钥匙扣', brand: 'Office Loop', price: 96, why: '保留点缀位但预算更轻。', accent: '#ffd5a3' },
+          { type: '同风格 · 升级款', name: 'Ligne Atelier 压纹证件夹', brand: 'Ligne Atelier', price: 208, why: '更强调材质完成度。', accent: '#e8a04a' },
+          { type: '风格外扩', name: 'Avenu Studio 细框眼镜链', brand: 'Avenu Studio', price: 118, why: '换成更轻盈的造型点缀。', accent: '#ffcc8a' },
+          { type: '形态替代', name: 'Merit Lane 帆布电脑袋', brand: 'Merit Lane', price: 184, why: '仍服务通勤，形式变成包袋件。', accent: '#ffd8a8' }
+        ]
+      }
+    ]
+  }
+];
+
+const state = {
+  budget: 500, frequency: '每周', mode: '品牌优先',
+  categories: new Set(['护肤', '配饰', '通勤包']),
+  excludes: new Set(),
+  variantIndex: 0,
+  theme: 'light',
+  items: []
+};
+
+const els = {
+  budget: document.getElementById('budget'),
+  budgetLabel: document.getElementById('budgetLabel'),
+  frequency: document.getElementById('frequency'),
+  modeSegment: document.getElementById('modeSegment'),
+  categoryChips: document.getElementById('categoryChips'),
+  excludeChips: document.getElementById('excludeChips'),
+  budgetTotal: document.getElementById('budgetTotal'),
+  budgetProgress: document.getElementById('budgetProgress'),
+  budgetNote: document.getElementById('budgetNote'),
+  metaSearch: document.getElementById('metaSearch'),
+  metaStyle: document.getElementById('metaStyle'),
+  metaMode: document.getElementById('metaMode'),
+  signalPanel: document.getElementById('signalPanel'),
+  sidebarSignals: document.getElementById('sidebarSignals'),
+  signalFootnote: document.getElementById('signalFootnote'),
+  cartStack: document.getElementById('cartStack'),
+  footerSummary: document.getElementById('footerSummary'),
+  footerHint: document.getElementById('footerHint'),
+  toast: document.getElementById('toast'),
+  approveBtn: document.getElementById('approveBtn'),
+  refreshCart: document.getElementById('refreshCart'),
+  miniRefresh: document.getElementById('miniRefresh'),
+  successView: document.getElementById('successView'),
+  mainView: document.getElementById('mainView'),
+  successItems: document.getElementById('successItems'),
+  successBudget: document.getElementById('successBudget'),
+  successSummary: document.getElementById('successSummary'),
+  backToCart: document.getElementById('backToCart'),
+  themeToggle: document.getElementById('themeToggle'),
+  backToMarket: document.getElementById('backToMarket'),
+  sidebar: document.getElementById('sidebar'),
+  footerBar: document.getElementById('footerBar')
+};
+
+const HEART_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.7-4.35-9.33-8.06C.86 10.2 1.5 6.5 4.4 5.2c2.27-1.02 4.7.05 5.6 1.4.9-1.35 3.33-2.42 5.6-1.4 2.9 1.3 3.54 5 1.73 7.74C18.7 16.65 12 21 12 21z"/></svg>';
+
+function deepClone(o) { return JSON.parse(JSON.stringify(o)); }
+function currentTotal() { return state.items.reduce((s, i) => s + i.price, 0); }
+
+function getActiveVariant() {
+  // 预算/模式优先决定大方向，"刷新购物车" 通过 variantIndex 在三套方案之间循环切换。
+  if (state.budget <= 360 || state.mode === '性价比优先') {
+    // 性价比/低预算：在 budget 与 base 之间循环
+    return cartVariants[state.variantIndex % 2 === 0 ? 1 : 0];
+  }
+  if (state.mode === '颜值优先') {
+    return cartVariants[state.variantIndex % 2 === 0 ? 2 : 0];
+  }
+  // 品牌 / 实用：三套循环
+  return cartVariants[state.variantIndex % 3];
+}
+
+function syncBudgetLabel() {
+  const cycle = state.frequency === '每天' ? '天' : state.frequency === '每周' ? '周' : '月';
+  els.budgetLabel.textContent = `¥${state.budget} / ${cycle}`;
+}
+
+function showToast(title, detail) {
+  els.toast.innerHTML = `<strong>${title}</strong><small>${detail}</small>`;
+  els.toast.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => els.toast.classList.remove('show'), 2200);
+}
+
+function renderSignals(variant) {
+  const html = variant.signalSummary.map(s => `
+    <div class="signal-item">
+      <div class="signal-top"><span>${s.label}</span><span>${s.score} · ${s.detail}</span></div>
+      <div class="signal-bar"><span style="width:${s.score}%"></span></div>
+    </div>`).join('');
+  els.signalPanel.innerHTML = html;
+  els.sidebarSignals.innerHTML = html;
+  els.signalFootnote.textContent = variant.footnote;
+  els.metaSearch.textContent = variant.items[0]?.name.includes('领带') ? '中古领带' : '法式配饰';
+  els.metaStyle.textContent = variant.signalSummary[0].label;
+  els.metaMode.textContent = state.mode;
+}
+
+function buildSwapCard(option, itemIndex, altIndex) {
+  const hasImg = !!option.image;
+  const styleVars = `--swap-accent:${option.accent}` + (hasImg ? `;--img:url('${option.image}')` : '');
+  return `
+    <article class="swap-card" style="${styleVars}">
+      <div class="swap-thumb ${hasImg ? 'has-image' : ''}">
+        <span class="swap-tag">${option.type}</span>
+      </div>
+      <strong>${option.name}</strong>
+      <small>${option.brand}</small>
+      <p>${option.why}</p>
+      <div class="swap-card-footer">
+        <span class="swap-price mono">${option.price}</span>
+        <button class="small-btn primary" data-action="swap" data-item-index="${itemIndex}" data-alt-index="${altIndex}">换成这件</button>
+      </div>
+    </article>
+  `;
+}
+
+function renderCart() {
+  els.cartStack.innerHTML = state.items.map((item, itemIndex) => `
+    <article class="product-card" data-product-index="${itemIndex}">
+      <div class="product-main">
+        <div class="thumb ${item.image ? 'has-image' : ''}" style="--accent:${item.accent}${item.image ? `;--img:url('${item.image}')` : ''}">
+          <span class="thumb-badge">${item.category}</span>
+          <span class="thumb-heart" aria-hidden="true">${HEART_SVG}</span>
+          <div class="thumb-label">${item.slot}</div>
+        </div>
+        <div class="product-copy">
+          <h3>${item.name}</h3>
+          <div class="product-sub">${item.brand}</div>
+          <div class="reason">${item.reason}</div>
+          <div class="mini-tags">${item.tags.map(t => `<span>#${t}</span>`).join('')}</div>
+        </div>
+        <div class="product-side">
+          <div>
+            <div class="price mono">${item.price}</div>
+            <div class="slot-note">${item.slot}</div>
+          </div>
+          <div class="product-actions">
+            <button class="small-btn" data-action="remove" data-item-index="${itemIndex}">不想要</button>
+          </div>
+        </div>
+      </div>
+      <div class="swap-row">
+        <div class="swap-row-head">
+          <div>
+            <h4>更多选择 <span>· 6 件</span></h4>
+            <p>同款替代、性价比、升级款、风格外扩、形态替代——左右滑动选你更喜欢的那件。</p>
+          </div>
+        </div>
+        <div class="swap-scroller">
+          ${item.alternatives.map((o, ai) => buildSwapCard(o, itemIndex, ai)).join('')}
+        </div>
+      </div>
+    </article>
+  `).join('');
+  bindCardActions();
+  updateSummary();
+}
+
+function updateSummary() {
+  const total = currentTotal();
+  const pct = state.budget ? Math.min(100, Math.round(total / state.budget * 100)) : 0;
+  els.budgetTotal.textContent = `¥${total} / ¥${state.budget}`;
+  els.budgetProgress.style.width = `${pct}%`;
+  els.budgetNote.textContent = `${state.frequency}一次 · ${state.mode} · 可直接确认`;
+  els.footerSummary.textContent = `当前 ${state.items.length} 件商品，已占预算 ${pct}%`;
+  els.footerHint.textContent = total > state.budget
+    ? '当前已超预算，建议删除、换成更便宜的备选，或点“刷新购物车”整体重算。'
+    : '替换或删除单件只更新预算条；切换模式或预算，请点“刷新购物车”整体重算。';
+  els.approveBtn.disabled = state.items.length === 0;
+  els.approveBtn.style.opacity = state.items.length === 0 ? 0.5 : 1;
+}
+
+function pickCartCount(budget, variantIndex) {
+  // Deterministic but varying: different counts each refresh, weighted by budget tier
+  const seed = ((variantIndex * 37) + Math.floor(budget / 50)) % 6;
+  if (budget < 400) return [1, 2, 1, 2, 3, 2][seed];
+  if (budget < 700) return [2, 3, 4, 3, 2, 4][seed];
+  if (budget < 1000) return [3, 4, 1, 5, 3, 4][seed];
+  return [1, 4, 5, 3, 4, 2][seed];
+}
+
+function applyVariant(notice) {
+  const v = deepClone(getActiveVariant());
+  const count = pickCartCount(state.budget, state.variantIndex);
+
+  // Build item list: start from variant's 3 items, extend with EXTRA_ITEMS if needed
+  let allItems = [...v.items];
+  if (count > allItems.length) {
+    allItems = allItems.concat(deepClone(EXTRA_ITEMS).slice(0, count - allItems.length));
+  }
+  allItems = allItems.slice(0, count);
+
+  // Scale all prices so total ≈ 88% of budget
+  const natural = allItems.reduce((s, i) => s + i.price, 0);
+  const targetPct = 0.86 + ((state.variantIndex * 13) % 11) * 0.01; // 86%–96%, ~91% avg
+  const ratio = Math.min(3.0, Math.max(0.45, (state.budget * targetPct) / natural));
+  allItems.forEach(item => {
+    item.price = Math.max(30, Math.round(item.price * ratio / 5) * 5);
+    item.alternatives.forEach(a => {
+      a.price = Math.max(20, Math.round(a.price * ratio / 5) * 5);
+    });
+  });
+  state.items = allItems;
+  renderSignals(v);
+  renderCart();
+  if (notice) showToast('CartPilot 已重新拼车', notice);
+}
+
+function bindCardActions() {
+  document.querySelectorAll('[data-action="remove"]').forEach(btn => {
+    btn.onclick = () => {
+      const i = Number(btn.dataset.itemIndex);
+      const r = state.items.splice(i, 1)[0];
+      renderCart();
+      showToast('已移除', `${r.name} 已从购物车删除。`);
+    };
+  });
+  document.querySelectorAll('[data-action="swap"]').forEach(btn => {
+    btn.onclick = () => {
+      const ii = Number(btn.dataset.itemIndex);
+      const ai = Number(btn.dataset.altIndex);
+      const cur = state.items[ii];
+      const next = deepClone(cur.alternatives[ai]);
+      state.items[ii] = {
+        ...cur,
+        name: next.name,
+        brand: `${next.brand} · 已替换`,
+        price: next.price,
+        reason: `已替换为「${next.type}」方案：${next.why}`,
+        accent: next.accent,
+        tags: [next.type, '已替换', '你的选择'],
+        alternatives: cur.alternatives
+          .filter((_, idx) => idx !== ai)
+          .concat([{ type: '原始主推', name: cur.name, brand: cur.brand, price: cur.price, why: '想回到最初的主推就点这里。', accent: cur.accent }])
+      };
+      renderCart();
+      showToast('已替换', `CartPilot 用「${next.name}」替代了当前商品。`);
+    };
+  });
+}
+
+function approveOrder() {
+  const total = currentTotal();
+  els.successItems.textContent = `${state.items.length} 件`;
+  els.successBudget.textContent = `¥${total}`;
+  els.successSummary.textContent = '购物车已模拟加入小红书购物车。本次你保留了最终选择权，同时把“选品、比价、凑单、替代决策”压缩成了一次从上往下的确认流程。';
+  els.mainView.style.display = 'none';
+  els.successView.classList.add('active');
+  els.footerBar.style.display = 'none';
+  showToast('已确认', '购物车已自动下单。');
+
+}
+
+function backToCart() {
+  els.mainView.style.display = '';
+  els.successView.classList.remove('active');
+  els.footerBar.style.display = '';
+}
+
+function attachEvents() {
+  els.budget.addEventListener('input', e => { state.budget = +e.target.value; syncBudgetLabel(); updateSummary(); });
+  els.budget.addEventListener('change', () => applyVariant());
+  els.frequency.addEventListener('change', e => { state.frequency = e.target.value; syncBudgetLabel(); updateSummary(); });
+  els.modeSegment.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', () => {
+      els.modeSegment.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      state.mode = b.dataset.mode;
+      applyVariant(`你切换为「${state.mode}」，CartPilot 已按新的偏好重新填满了购物车。`);
+    });
+  });
+  els.categoryChips.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+    b.classList.toggle('active');
+    const c = b.dataset.cat;
+    b.classList.contains('active') ? state.categories.add(c) : state.categories.delete(c);
+    showToast('品类偏好已更新', `当前偏好：${Array.from(state.categories).join(' / ') || '暂未选择'}`);
+  }));
+  els.excludeChips.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+    b.classList.toggle('active');
+    const v = b.dataset.exclude;
+    b.classList.contains('active') ? state.excludes.add(v) : state.excludes.delete(v);
+    showToast('屏蔽项已更新', state.excludes.size ? `已屏蔽：${Array.from(state.excludes).join('、')}` : '当前没有屏蔽项。');
+  }));
+  [els.refreshCart, els.miniRefresh].forEach(btn => btn.addEventListener('click', () => {
+    state.variantIndex += 1;
+    applyVariant('CartPilot 已根据当前预算、频率与偏好刷新了购物车。');
+  }));
+  els.approveBtn.addEventListener('click', approveOrder);
+  els.backToCart.addEventListener('click', backToCart);
+  els.themeToggle.addEventListener('click', () => {
+    state.theme = state.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', state.theme);
+    els.themeToggle.textContent = state.theme === 'light' ? '深色' : '浅色';
+  });
+  els.backToMarket.addEventListener('click', () => showView('market'));
+  document.addEventListener('click', e => {
+    if (window.innerWidth <= 920 && !els.sidebar.contains(e.target)) {
+      els.sidebar.classList.remove('open');
+    }
+  });
+}
+
+function init() { syncBudgetLabel(); applyVariant(); attachEvents(); }
+init();
+
+function showView(view) {
+  const market = document.getElementById('marketView');
+  const app = document.getElementById('appShell');
+  if (view === 'market') {
+    market.style.display = 'flex';
+    app.style.display = 'none';
+  } else {
+    market.style.display = 'none';
+    app.style.display = '';
+  }
+}
+document.getElementById('cpTab').addEventListener('click', () => showView('cart'));
+
+
+// Phone-embedded preferences hookup
+(function(){
+  const pFreq = document.getElementById('phoneFrequency');
+  const pBudget = document.getElementById('phoneBudget');
+  const pBudgetLabel = document.getElementById('phoneBudgetLabel');
+  const pMode = document.getElementById('phoneModeSegment');
+  if(!pFreq || !pBudget || !pMode) return;
+
+  function syncLabel(){
+    const cycle = state.frequency === '每天' ? '天' : state.frequency === '每周' ? '周' : '月';
+    pBudgetLabel.textContent = `¥${state.budget} / ${cycle}`;
+  }
+  pFreq.value = state.frequency;
+  pBudget.value = state.budget;
+  syncLabel();
+
+  pFreq.addEventListener('change', e => {
+    state.frequency = e.target.value;
+    syncLabel();
+    if (typeof updateSummary === 'function') updateSummary();
+  });
+  pBudget.addEventListener('input', e => {
+    state.budget = +e.target.value;
+    syncLabel();
+    if (typeof updateSummary === 'function') updateSummary();
+  });
+  pBudget.addEventListener('change', () => applyVariant());
+  pMode.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', () => {
+      pMode.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      state.mode = b.dataset.mode;
+      state.variantIndex = 0;
+      applyVariant(`已切换为「${state.mode}」，CartPilot 重新为你填满了购物车。`);
+    });
+  });
+})();
+
+</script>
+</body>
+</html>
