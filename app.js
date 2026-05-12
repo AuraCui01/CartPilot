@@ -1,5 +1,5 @@
 // CartPilot · 智能买手 · 静态 Demo
-// HTML/CSS/JS 单页，无需构建。直接部署到 GitHub Pages 根目录。
+// HTML/CSS/JS 单页，无需构建。
 
 // === 商品池：覆盖配饰 / 护肤 / 通勤 / 家居 / 数码 五类，价位从 ¥68 到 ¥1280 ===
 const ITEM_POOL = {
